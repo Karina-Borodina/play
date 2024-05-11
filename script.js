@@ -182,3 +182,33 @@ function add_all_my_pipes() {
   finish_line.velocity_x = pipe_speed;
   pipes.push(finish_line);
 }
+
+var pipe_piece = new Image();
+pipe_piece.onload = add_all_my_pipes;
+pipe_piece.src = 'http://s2js.com/img/etc/flappypipe.png';
+
+function Do_a_Frame() {
+  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+  bird.Do_Frame_Things();
+  display_bar_running_along_bottom();
+  switch (game_mode) {
+    case 'prestart': {
+      display_intro_instructions();
+      break;
+    }
+    case 'running': {
+      time_game_last_running = new Date();
+      bottom_bar_offset = bottom_bar_offset + pipe_speed;
+      show_the_pipes();
+      make_bird_tilt_appropriately();
+      make_bird_slow_and_fall();
+      check_for_end_game();
+      break;
+    }
+    case 'over': {
+      make_bird_slow_and_fall();
+      display_game_over();
+      break;
+    }
+  }
+}
