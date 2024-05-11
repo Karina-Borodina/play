@@ -1,1 +1,10 @@
-
+let ctx = myCanvas.getContext('2d');
+let FPS = 40;
+let jump_amount = -10;
+let max_fall_speed = +10;
+let acceleration = 1;
+let pipe_speed = -2;
+let game_mode = 'prestart';
+let time_game_last_running;
+let bottom_bar_offset = 0;
+let  pipes = [];
