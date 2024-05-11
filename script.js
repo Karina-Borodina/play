@@ -212,3 +212,12 @@ function Do_a_Frame() {
     }
   }
 }
+
+var bottom_bar = new Image();
+bottom_bar.src = 'http://s2js.com/img/etc/flappybottom.png';
+
+var bird = new MySprite('http://s2js.com/img/etc/flappybird.png');
+bird.x = myCanvas.width / 3;
+bird.y = myCanvas.height / 2;
+
+setInterval(Do_a_Frame, 1000 / FPS);
